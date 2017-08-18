@@ -8,12 +8,15 @@ FIRST=
 LAST=
 while [ "$1" != "" ]; do
     case $1 in
-        -f          shift
+        -f )        shift
                     FIRST=$1
                     ;;
-        -l          shift
+        -l )        shift
                     LAST=$1
                     ;;
+	-c )	    shift
+		    CORES=$1
+		    ;;
     esac
     shift
 done
@@ -26,9 +29,13 @@ echo "Getting fastq files for SRR$FIRST up to SRR$LAST"
 echo
 
 mkdir tmp
-for i in {$FIRST..$LAST}
-do
+if [$FIRST -eq $LAST]; then
+    parallel-fastq-dump -s SRR$FIRST -t $CORES -O . --tmpdir tmp
+else
+    for i in $(seq $FIRST 1 $LAST)
+    do
 	echo "Downloading SRR$i"
-	parallel-fastq-dump -s SRR$i -t 20 -O . --tmpdir tmp
-done
+	parallel-fastq-dump -s SRR$i -t $CORES -O . --tmpdir tmp
+    done
+fi
 rm -rf tmp
