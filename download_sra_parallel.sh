@@ -29,7 +29,7 @@ echo "Getting fastq files for SRR$FIRST up to SRR$LAST"
 echo
 
 mkdir tmp
-if [$FIRST -eq $LAST]; then
+if [ $FIRST -eq $LAST ]; then
     parallel-fastq-dump -s SRR$FIRST -t $CORES -O . --tmpdir tmp
 else
     for i in $(seq $FIRST 1 $LAST)
