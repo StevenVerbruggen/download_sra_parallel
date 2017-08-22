@@ -36,7 +36,7 @@ else
     do
 	echo "Downloading SRR$i"
 	parallel-fastq-dump -s SRR$i -t $CORES -O . --tmpdir tmp
-    rm -rf ~/ncbi/public/sra/SRR$i
+    rm -rf ~/ncbi/public/sra/SRR$i.sra.cache
     done
 fi
 rm -rf tmp
