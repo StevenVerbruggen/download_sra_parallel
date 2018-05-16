@@ -6,7 +6,7 @@ Tool to do parallel fastq dump for multiple SRR entries at once
 
 E.g: download SRR3034567 up until SRR3034572
 
-```./download_sra_parallel.sh -f 3034567 -l 3034572```
+```./download_sra_parallel.sh -f 3034567 -l 3034572 -c 20```
 
 ## Installation prequisites
 

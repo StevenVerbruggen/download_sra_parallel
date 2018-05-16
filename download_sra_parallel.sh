@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ## This script uses parallel-fastq-dump (conda install parallel-fastq-dump) to download for multiple SRR entries at once
-## nohup ./download_sra_parallel.sh -f 3034567 -l 3034572 > nohup.txt &
+## nohup ./download_sra_parallel.sh -f 3034567 -l 3034572 -c 20 > nohup.txt &
 
 #Read input parameters
 FIRST=
