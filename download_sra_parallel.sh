@@ -14,9 +14,9 @@ while [ "$1" != "" ]; do
         -l )        shift
                     LAST=$1
                     ;;
-	-c )	    shift
-		    CORES=$1
-		    ;;
+        -c )	    shift
+                CORES=$1
+                ;;
     esac
     shift
 done
